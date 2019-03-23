@@ -115,6 +115,8 @@ namespace Zeiterfassungs_Client
 
                 dataGridView1.DataSource = dt;
                 conn.Close();
+                // eine neue Kommentarzeite eingefügt
+                // noch ne Ändderung
             }
             catch (Exception msg)
             {
