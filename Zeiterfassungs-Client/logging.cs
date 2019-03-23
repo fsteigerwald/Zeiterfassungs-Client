@@ -8,6 +8,9 @@ namespace Zeiterfassungs_Client
 {
     class Logging
     {
+        // testkommentar
+        //weiterer Testkommentar
+
 
     }
 }
