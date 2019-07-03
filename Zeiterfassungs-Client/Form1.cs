@@ -9,28 +9,33 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;  // Postgres Dataenprovider
 
+using CustomExtensions;             // enthält Klasse Logging
+
 namespace Zeiterfassungs_Client
 {
     public partial class FrmMain : Form
     {
         private DataSet ds = new DataSet();
         private DataTable dt = new DataTable();
-        private string s
-            ;
+        private string s;
+        private Logging lo = new Logging();      // Logging Klasse einbinden
 
         public FrmMain()
         {
             InitializeComponent();
+            lo.l("MDAE0100;Programmstart mit Initialisierung");
         }
         
 
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            lo.l("main0100;FormLoad");
             /*
                 Label Ladeprozedur
             */
             lblProgInfo.Text = "Bitte zunächst einen Namen aus der Listbox auswählen. Einfach anklicken.";
+            lo.l("MAIN0200;Label belegt");
             /*
                 Listbox Handling: https://www.c-sharpcorner.com/uploadfile/mahesh/listbox-in-C-Sharp/
             */
@@ -39,6 +44,7 @@ namespace Zeiterfassungs_Client
             listBoxNamen.Items.Add("Nergiz");
             listBoxNamen.Items.Add("Dzeny");
             listBoxNamen.Items.Add("Natalie");
+            lo.bWriteLogLineToFile("MAIN0300;Namen eigenelsen");
         }
 
         private void cmdExit_Click(object sender, EventArgs e)
